@@ -22,6 +22,7 @@ void struct_sizes();
 int main(){
     all_sizes();
     struct_sizes();
+    return 0;
 }
 
 void all_sizes(){
@@ -29,60 +30,54 @@ void all_sizes(){
     float fl = 0.0;
     double d = 0.0;
     long l = 0;
-    long long ll = 0;
-    long long int lln = 0;
     long int ln = 0;
 
     printf("int - %d\n",n);
     printf("float - %f\n",fl);
-    printf("double - %lf\n",fl);
+    printf("double - %f\n",fl);
     printf("long - %ld\n",l);
-    printf("long long- %lld\n",ll);
-    printf("long long int - %lld\n",lln);
     printf("long int - %ld\n\n",ln);
 
-    printf("sizeof(int) - %ld\n",sizeof(n));
-    printf("sizeof(float) - %ld\n",sizeof(fl));
-    printf("sizeof(double) - %ld\n",sizeof(d));
-    printf("sizeof(long) - %ld\n",sizeof(l));
-    printf("sizeof(long long) - %ld\n",sizeof(ll));
-    printf("sizeof(long long int) - %ld\n",sizeof(lln));
-    printf("sizeof(long int) - %ld\n\n\n",sizeof(ln));
+    printf("sizeof(int) - %lu\n",(unsigned long)sizeof(n));
+    printf("sizeof(float) - %lu\n",(unsigned long)sizeof(fl));
+    printf("sizeof(double) - %lu\n",(unsigned long)sizeof(d));
+    printf("sizeof(long) - %lu\n",(unsigned long)sizeof(l));
+    printf("sizeof(long int) - %lu\n\n\n",(unsigned long)sizeof(ln));
 }
 
 void struct_sizes(){
-    Test* test;
-    
-    printf("sizeof(Test) - %ld\n", sizeof(test));
-    printf("Test - %p\n\n",test);
+    Test* test=NULL;
+    Test2 *test2=NULL;
+
+    printf("sizeof(Test) - %lu\n", (unsigned long)sizeof(test));
+    printf("Test - %p\n\n",(void*)test);
 
     test = (Test*)malloc(sizeof(Test));
 
-    printf("malloc sizeof(Test) - %ld\n", sizeof(test));
-    printf("malloc Test - %p\n\n",test);
+    printf("malloc sizeof(Test) - %lu\n", (unsigned long)sizeof(test));
+    printf("malloc Test - %p\n\n",(void*)test);
 
     free(test);
-    printf("malloc(free) sizeof(Test) - %ld\n", sizeof(*test));
-    printf("malloc(free) Test - %p\n\n",test);
-    
-    Test2 *test2 = (Test2*)realloc(test2,sizeof(Test2));
-    printf("realloc sizeof(Test) - %ld\n", sizeof(*test2));
-    printf("realloc Test - %p\n\n",test2);
+    printf("malloc(free) sizeof(Test) - %lu\n", (unsigned long)sizeof(*test));
+    printf("malloc(free) Test - %p\n\n",(void*)test);
 
-    (Test2*)realloc(test2,0);
-    printf("realloc(free) sizeof(Test2) - %ld\n", sizeof(*test2));
-    printf("realloc(free) Test2 - %p\n\n",test2);
+
+    test2 = (Test2*)realloc(test2,sizeof(Test2));
+    printf("realloc sizeof(Test) - %lu\n", (unsigned long)sizeof(*test2));
+    printf("realloc Test - %p\n\n",(void*)test2);
+
+    test2=(Test2*)realloc(test2,0);
+    printf("realloc(free) sizeof(Test2) - %lu\n", (unsigned long)sizeof(*test2));
+    printf("realloc(free) Test2 - %p\n\n",(void*)test2);
 
     test = (Test*)calloc(1,sizeof(Test));
-    printf("realloc sizeof(Test2) - %ld\n", sizeof(*test));
-    printf("realloc Test2 - %p\n\n",test);
+    printf("realloc sizeof(Test2) - %lu\n", (unsigned long)sizeof(*test));
+    printf("realloc Test2 - %p\n\n",(void*)test);
 
     free(test);
-    printf("calloc(free) sizeof(Test) - %ld\n", sizeof(*test));
-    printf("calloc(free) Test - %p\n\n",test);
+    printf("calloc(free) sizeof(Test) - %lu\n", (unsigned long)sizeof(*test));
+    printf("calloc(free) Test - %p\n\n",(void*)test);
 
-
-    union TestUnion t;
-    printf("sizeof(union) - %ld\n\n\n",sizeof(union TestUnion));
+    printf("sizeof(union) - %lu\n\n\n",(unsigned long)sizeof(union TestUnion));
 }
 
