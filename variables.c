@@ -11,6 +11,7 @@ typedef struct Test2{
     double n2;
     long n3;
 } Test2;
+
 union TestUnion {
     Test t;
     Test2 t2;
@@ -31,18 +32,21 @@ void all_sizes(){
     double d = 0.0;
     long l = 0;
     long int ln = 0;
+    long double llf =0.0;
 
     printf("int - %d\n",n);
     printf("float - %f\n",fl);
     printf("double - %f\n",fl);
     printf("long - %ld\n",l);
-    printf("long int - %ld\n\n",ln);
+    printf("long int - %ld\n",ln);
+    printf("long double - %f\n\n",(double)llf);
 
     printf("sizeof(int) - %lu\n",(unsigned long)sizeof(n));
     printf("sizeof(float) - %lu\n",(unsigned long)sizeof(fl));
     printf("sizeof(double) - %lu\n",(unsigned long)sizeof(d));
     printf("sizeof(long) - %lu\n",(unsigned long)sizeof(l));
-    printf("sizeof(long int) - %lu\n\n\n",(unsigned long)sizeof(ln));
+    printf("sizeof(long int) - %lu\n",(unsigned long)sizeof(ln));
+    printf("sizeof(long double) - %lu\n\n\n",(unsigned long)sizeof(llf));
 }
 
 void struct_sizes(){
@@ -80,4 +84,3 @@ void struct_sizes(){
 
     printf("sizeof(union) - %lu\n\n\n",(unsigned long)sizeof(union TestUnion));
 }
-
