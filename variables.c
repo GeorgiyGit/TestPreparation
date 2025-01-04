@@ -19,10 +19,12 @@ union TestUnion {
 
 void all_sizes();
 void struct_sizes();
+void str_sizes();
 
 int main(){
     all_sizes();
     struct_sizes();
+    str_sizes();
     return 0;
 }
 
@@ -33,6 +35,7 @@ void all_sizes(){
     long l = 0;
     long int ln = 0;
     long double llf =0.0;
+
 
     printf("int - %d\n",n);
     printf("float - %f\n",fl);
@@ -49,6 +52,27 @@ void all_sizes(){
     printf("sizeof(long double) - %lu\n\n\n",(unsigned long)sizeof(llf));
 }
 
+void str_sizes(){
+    char c='a';
+    char str[] = "123";
+    char str2[] = {'1','2','3','\0'};
+    char* strPtr = (char*)malloc(4*sizeof(char));
+    strPtr[0]='1';
+    strPtr[1]='2';
+    strPtr[2]='3';
+
+    printf("char - %c\n",c);
+    printf("sizeof(char) - %lu\n\n",(unsigned long)sizeof(c));
+
+    printf("array str1 - %s\n",str);
+    printf("sizeof(str1) - %lu\n\n",(unsigned long)sizeof(str));
+
+    printf("array str2 - %s\n",str2);
+    printf("sizeof(str2) - %lu\n\n",(unsigned long)sizeof(str2));
+
+    printf("ptr str - %s\n",strPtr);
+    printf("sizeof(ptr str) - %lu\n\n\n",(unsigned long)sizeof(strPtr));
+}
 void struct_sizes(){
     Test* test=NULL;
     Test2 *test2=NULL;
