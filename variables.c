@@ -20,11 +20,17 @@ union TestUnion {
 void all_sizes();
 void struct_sizes();
 void str_sizes();
+void operators();
+void arrays();
+void cycles();
 
 int main(){
     all_sizes();
     struct_sizes();
     str_sizes();
+    operators();
+    arrays();
+    cycles();
     return 0;
 }
 
@@ -73,6 +79,7 @@ void str_sizes(){
     printf("ptr str - %s\n",strPtr);
     printf("sizeof(ptr str) - %lu\n\n\n",(unsigned long)sizeof(strPtr));
 }
+
 void struct_sizes(){
     Test* test=NULL;
     Test2 *test2=NULL;
@@ -107,4 +114,36 @@ void struct_sizes(){
     printf("calloc(free) Test - %p\n\n",(void*)test);
 
     printf("sizeof(union) - %lu\n\n\n",(unsigned long)sizeof(union TestUnion));
+}
+
+void operators(){
+    int a = 4;
+    printf("a++ %d\n",a++);
+    printf("a %d\n\n",a);
+    printf("++a %d\n",++a);
+    printf("a %d\n\n\n",a);
+}
+
+void arrays(){
+    int a[4]={0};
+    int b[4]={1};
+
+    printf("a[2] %d\n",a[2]);
+    printf("b[2] %d\n\n",b[2]);
+}
+
+void cycles(){
+    int i=0;
+    for(i=0;i<10; i++){
+        printf("i - %d\n",i);
+    }
+    printf("\n");
+    
+    for(i=0;i<10;printf("i - %d\n",++i));
+    printf("\n");
+
+    for(i=0;i<10; ++i){
+        printf("i - %d\n",i);
+    }
+    printf("\n\n");
 }
