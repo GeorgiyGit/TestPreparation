@@ -2,8 +2,10 @@
 #include "stdlib.h"
 
 void readFile();
+void writeFile();
 int main(){
     readFile();
+    writeFile();
     return 0;
 }
 
@@ -36,4 +38,13 @@ void readFile(){
     printf("\n\n");
     /*rename("test.txt","test2.txt");*/
     /*remove("test.txt");*/
+}
+
+void writeFile(){
+    FILE* fptr = fopen("test.txt","r+");
+
+    fseek(fptr,0,SEEK_END);
+    fprintf(fptr,"\ntest\n");
+    fputc('t',fptr);
+    fclose(fptr);
 }
