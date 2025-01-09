@@ -40,6 +40,16 @@ typedef struct Test7{
     char c;
 } Test7;
 
+typedef struct Test8{
+    int a;
+    char c;
+} Test8;
+
+typedef struct Test9{
+    char c;
+    int a;
+} Test9;
+
 
 int main(){
     printf("Test1 - %lu\n",(unsigned long)sizeof(Test1));
@@ -48,5 +58,7 @@ int main(){
     printf("Test4 - %lu\n",(unsigned long)sizeof(Test4));
     printf("Test5 - %lu\n",(unsigned long)sizeof(Test5));
     printf("Test7 - %lu\n",(unsigned long)sizeof(Test7));
+    printf("Test8 - %lu\n",(unsigned long)sizeof(Test8));
+    printf("Test9 - %lu\n",(unsigned long)sizeof(Test9));
     return 0;
 }
