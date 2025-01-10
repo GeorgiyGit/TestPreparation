@@ -5,5 +5,5 @@ void main(){
     p1=str;
     for(p2=p1;(p2-p1)<sizeof(str) && *p2!='?';p2++);
     printf("%d",(p2<p1+sizeof(str))?(p2-p1+1):-1);
-    printf("%s",(p2<p1+sizeof(str))?(p2+2):p1+1);
+    printf("%c",(p2<p1+sizeof(str))?(p2+2):p1+1);
 }

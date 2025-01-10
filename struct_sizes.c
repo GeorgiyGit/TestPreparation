@@ -49,9 +49,11 @@ typedef struct Test9{
     char c;
     int a;
 } Test9;
+
 typedef struct Test10{
     unsigned t:5;
     unsigned p:10;
+    unsigned y:20;
 } Test10;
 
 int main(){
